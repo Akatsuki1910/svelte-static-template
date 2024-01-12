@@ -1,0 +1,23 @@
+name: ci-check
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  ci-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20.10.0
+
+      - name: Install packages
+        run: yarn install
+      - name: Lint Check
+        run: yarn lint
+      - name: Build Check
+        run: yarn build

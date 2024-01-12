@@ -1,0 +1,168 @@
+{
+  "env": {
+    "browser": true,
+    "es2020": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:@typescript-eslint/stylistic-type-checked",
+    "plugin:svelte/recommended",
+    "plugin:import/recommended",
+    "plugin:import/warnings",
+    "prettier"
+  ],
+  "overrides": [
+    {
+      "files": ["*.svelte"],
+      "parser": "svelte-eslint-parser",
+      "parserOptions": {
+        "parser": "@typescript-eslint/parser"
+      },
+      "rules": {
+        "svelte/no-at-html-tags": "off",
+        "unicorn/filename-case": [
+          "error",
+          {
+            "case": "pascalCase"
+          }
+        ]
+      }
+    },
+    {
+      "files": ["src/routes/**/*.svelte"],
+      "rules": {
+        "unicorn/filename-case": [
+          "error",
+          {
+            "case": "camelCase"
+          }
+        ]
+      }
+    },
+    {
+      "extends": ["plugin:@typescript-eslint/recommended-requiring-type-checking"],
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": ["./tsconfig.json"]
+      },
+      "rules": {
+        "@typescript-eslint/no-floating-promises": [
+          "error",
+          {
+            "ignoreIIFE": true,
+            "ignoreVoid": false
+          }
+        ],
+        "@typescript-eslint/prefer-regexp-exec": "error",
+        "@typescript-eslint/promise-function-async": [
+          "error",
+          {
+            "checkArrowFunctions": false,
+            "checkFunctionDeclarations": true,
+            "checkFunctionExpressions": false,
+            "checkMethodDeclarations": false
+          }
+        ]
+      }
+    },
+    {
+      "files": ["vite.config.ts"],
+      "rules": {
+        "import/no-default-export": "off"
+      }
+    },
+    {
+      "files": ["svelte.config.js"],
+      "rules": {
+        "import/no-default-export": "off",
+        "import/no-unused-modules": "off"
+      }
+    }
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "extraFileExtensions": [".svelte"],
+    "project": true,
+    "sourceType": "module"
+  },
+  "plugins": ["import", "unused-imports", "unicorn"],
+  "root": true,
+  "rules": {
+    "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "format": ["PascalCase"],
+        "selector": "class"
+      },
+      {
+        "format": ["PascalCase"],
+        "selector": "interface"
+      },
+      {
+        "format": ["PascalCase"],
+        "selector": "typeAlias"
+      }
+    ],
+    "@typescript-eslint/no-empty-interface": [
+      "error",
+      {
+        "allowSingleExtends": false
+      }
+    ],
+    "@typescript-eslint/no-inferrable-types": [
+      "error",
+      {
+        "ignoreParameters": true,
+        "ignoreProperties": false
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    "eqeqeq": "error",
+    "import/no-default-export": "error",
+    "import/no-unused-modules": [
+      "error",
+      {
+        "unusedExports": true
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "caseInsensitive": true,
+          "order": "asc"
+        }
+      }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["./", "../", ".."]
+      }
+    ],
+    "unicorn/filename-case": [
+      "error",
+      {
+        "case": "camelCase"
+      }
+    ],
+    "unused-imports/no-unused-imports": "error"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "project": ["tsconfig.json"]
+      }
+    }
+  }
+}
