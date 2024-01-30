@@ -1,0 +1,13 @@
+$pc-min-width: 768px;
+
+@mixin pc {
+  @media (min-width: $pc-min-width) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media (max-width: ($pc-min-width - 1)) {
+    @content;
+  }
+}
