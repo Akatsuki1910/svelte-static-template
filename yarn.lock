@@ -2909,10 +2909,10 @@ stylelint-config-html@^1.1.0:
   resolved "https://registry.yarnpkg.com/stylelint-config-html/-/stylelint-config-html-1.1.0.tgz#999db19aea713b7ff6dde92ada76e4c1bd812b66"
   integrity sha512-IZv4IVESjKLumUGi+HWeb7skgO6/g4VMuAYrJdlqQFndgbj6WJAXPhaysvBiXefX79upBdQVumgYcdd17gCpjQ==
 
-stylelint-config-recess-order@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-recess-order/-/stylelint-config-recess-order-4.5.0.tgz#45d2b251d14d6238818fee6017e8399a21723b68"
-  integrity sha512-GdIX+zgjo2ln7y+G6v6B8OdFrXhW6WteCg/vlQWIqpuo5q1SSF6ZwRvWU7LbfnC+z9AwUfga870gAWzGX3tDPg==
+stylelint-config-recess-order@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-recess-order/-/stylelint-config-recess-order-4.6.0.tgz#b4c851c490b4e626b14712686b1eab1e4b17e253"
+  integrity sha512-V76fhv3YtcNXh/hyAuAdSzi5FmcrG54Mp2AThJ3D/PTMTSYzUPd7GIhP6z9mTqnRhmkk6YTfcu/JWB8h+Yrcaw==
   dependencies:
     stylelint-order "6.x"
 
