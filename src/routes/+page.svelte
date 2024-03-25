@@ -1,8 +1,12 @@
+<script lang="ts">
+  import PackageViewer from '$lib/components/PackageViewer.svelte';
+</script>
+
 <h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<PackageViewer />
 
 <style lang="scss">
-  p {
-    color: red;
+  h1 {
+    font-size: xx-large;
   }
 </style>
