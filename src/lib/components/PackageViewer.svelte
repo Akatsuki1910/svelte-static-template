@@ -1,15 +1,8 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import type { PackageDataFormat } from '$lib';
   import PackageData from '$lib/components/PackageData.svelte';
 
-  let devDependenciesArr: [string, string][] = [];
-
-  onMount(async () => {
-    const f = await fetch('$lib/components/package.json');
-    const devDependenciesData = ((await f.json()) as Record<string, unknown>)
-      .devDependencies as Record<string, string>;
-    devDependenciesArr = Object.entries(devDependenciesData);
-  });
+  export let data: PackageDataFormat[];
 </script>
 
 <h2>USE PACKAGE LIST</h2>
@@ -17,15 +10,15 @@
 <details class="details">
   <summary>In-page link</summary>
   <ul>
-    {#each devDependenciesArr as data (`link_${data[0]}`)}
-      <li><a href={`#${data[0]}`} class="page-link">{data[0]}</a></li>
+    {#each data as d (`link_${d.name}`)}
+      <li><a href={`#${d.name}`} class="page-link">{d.name}</a></li>
     {/each}
   </ul>
 </details>
 
-{#if devDependenciesArr.length}
-  {#each devDependenciesArr as data (`data_${data[0]}`)}
-    <PackageData packageData={data} />
+{#if data.length}
+  {#each data as d (`data_${d.name}`)}
+    <PackageData data={d} />
   {/each}
 {/if}
 

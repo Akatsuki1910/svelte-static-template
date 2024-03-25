@@ -1,1 +1,10 @@
-// place files you want to import through the `$lib` alias in this folder.
+export interface PackageDataFormat {
+  name: string;
+  version: {
+    now: { v: string; time: string };
+    latest: { v: string; time: string };
+    diff: number;
+  };
+  repository: string;
+  times: Record<string, string>;
+}
