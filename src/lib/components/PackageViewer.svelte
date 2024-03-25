@@ -5,6 +5,14 @@
   export let data: PackageDataFormat[];
 </script>
 
+<a
+  href="https://github.com/akatsuki1910/svelte-static-template/"
+  class="page-link"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  https://github.com/akatsuki1910/svelte-static-template/
+</a>
 <h2>USE PACKAGE LIST</h2>
 
 <details class="details">
