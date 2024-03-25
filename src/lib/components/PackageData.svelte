@@ -12,6 +12,8 @@
       minute: '2-digit',
       second: '2-digit'
     });
+
+  let isHiddenAlpha = true;
 </script>
 
 <section class="section">
@@ -30,12 +32,20 @@
     <tbody>
       <tr>
         <th scope="col">Package Latest</th>
-        <td>{data.version.latest.v}</td>
+        <td
+          class={data.version.latest.v === data.version.now.v
+            ? 'version-color-some'
+            : 'version-color-latest'}>{data.version.latest.v}</td
+        >
         <td>{getDate(data.version.latest.time)}</td>
       </tr>
       <tr>
         <th scope="col">Now Version</th>
-        <td>{data.version.now.v}</td>
+        <td
+          class={data.version.latest.v === data.version.now.v
+            ? 'version-color-some'
+            : 'version-color-now'}>{data.version.now.v}</td
+        >
         <td>{getDate(data.version.now.time)}</td>
       </tr>
     </tbody>
@@ -48,6 +58,10 @@
   </table>
   <details>
     <summary>Versions</summary>
+    <label class="label">
+      <input type="checkbox" bind:checked={isHiddenAlpha} class="checkbox" />
+      Hidden Alpha
+    </label>
     <table>
       <thead>
         <tr>
@@ -57,10 +71,21 @@
       </thead>
       <tbody>
         {#each Object.entries(data.times).reverse() as timesData (timesData[0])}
-          <tr>
-            <td>{timesData[0]}</td>
-            <td>{getDate(timesData[1])}</td>
-          </tr>
+          {#if !(isHiddenAlpha && timesData[0].includes('-'))}
+            <tr>
+              <td
+                class={data.version.latest.v === data.version.now.v &&
+                data.version.latest.v === timesData[0]
+                  ? 'version-color-some'
+                  : data.version.latest.v === timesData[0]
+                    ? 'version-color-latest'
+                    : data.version.now.v === timesData[0]
+                      ? 'version-color-now'
+                      : undefined}>{timesData[0]}</td
+              >
+              <td>{getDate(timesData[1])}</td>
+            </tr>
+          {/if}
         {/each}
       </tbody>
     </table>
@@ -68,8 +93,25 @@
 </section>
 
 <style lang="scss">
+  .version-color {
+    &-now {
+      font-weight: bold;
+      color: red;
+    }
+
+    &-latest {
+      font-weight: bold;
+      color: green;
+    }
+
+    &-some {
+      font-weight: bold;
+      color: purple;
+    }
+  }
+
   .section {
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid black;
   }
 
   .repository-link {
@@ -77,6 +119,36 @@
 
     &:hover {
       color: red;
+    }
+  }
+
+  .label {
+    cursor: pointer;
+  }
+
+  .checkbox {
+    position: relative;
+    width: 1em;
+    height: 1em;
+    border: 1px solid black;
+
+    &::after {
+      display: none;
+    }
+
+    &:checked {
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: 0.5em;
+        height: 0.5em;
+        content: '';
+        background-color: black;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
   }
 </style>
