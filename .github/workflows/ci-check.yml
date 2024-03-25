@@ -20,6 +20,8 @@ jobs:
 
       - name: Install packages
         run: yarn install
+      - name: Copy package.json
+        run: yarn copy:package.json
       - name: Lint Check
         run: yarn lint
       - name: Build Check
