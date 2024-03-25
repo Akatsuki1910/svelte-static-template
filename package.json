@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "vite dev",
-    "prebuild": "cp ./package.json ./src/lib/components/",
+    "copy:package.json": "cp ./package.json ./src/lib/components/",
+    "prebuild": "yarn copy:package.json",
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
