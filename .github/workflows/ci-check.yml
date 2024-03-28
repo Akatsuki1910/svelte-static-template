@@ -26,3 +26,7 @@ jobs:
         run: yarn lint
       - name: Build Check
         run: yarn build
+  deploy:
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    needs: ci-check
+    uses: ./.github/workflows/deploy.yml
