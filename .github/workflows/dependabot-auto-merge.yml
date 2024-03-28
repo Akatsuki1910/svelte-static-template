@@ -16,7 +16,7 @@ jobs:
         with:
           github-token: '${{ secrets.GITHUB_TOKEN }}'
       - name: Deploy
-        uses: './.github/workflows/common-deploy.yml'
+        uses: './.github/workflows/deploy.yml'
       - name: Enable auto-merge for Dependabot PRs
         run: gh pr merge --auto --merge "$PR_URL"
         env:
