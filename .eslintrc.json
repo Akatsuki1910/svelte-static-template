@@ -27,6 +27,12 @@
           {
             "case": "pascalCase"
           }
+        ],
+        "import/no-unresolved": [
+          "error",
+          {
+            "ignore": ["$app/**"]
+          }
         ]
       }
     },
