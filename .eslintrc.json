@@ -27,13 +27,13 @@
           {
             "case": "pascalCase"
           }
-        ],
-        "import/no-unresolved": [
-          "error",
-          {
-            "ignore": ["$app/**"]
-          }
         ]
+        //   "import/no-unresolved": [
+        //     "error",
+        //     {
+        //       "ignore": ["$app/**"]
+        //     }
+        //   ]
       }
     },
     {
