@@ -6,6 +6,7 @@ const diffDay = (date1: string, date2: string) =>
 
 /** @type {import('./$types').PageLoad} */
 export async function load() {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
   const devDependenciesArr = Object.entries(devDependenciesData.devDependencies);
 
   const loadPackageData = async (d: (typeof devDependenciesArr)[number]) => {
@@ -15,6 +16,7 @@ export async function load() {
     const data: PackageDataFormat = {
       name: npmData.name as string,
       version: {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
         now: { v: d[1].replaceAll('^', ''), time: '' },
         latest: { v: (npmData['dist-tags'] as Record<string, string>).latest, time: '' },
         diff: 0

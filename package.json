@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "lint": "prettier --check . && yarn lint:eslint && yarn lint:stylelint",
+    "lint": "prettier --check . --fix && yarn lint:eslint && yarn lint:stylelint",
     "lint:eslint": "eslint ./src --quiet",
     "lint:stylelint": "stylelint --ignore-path .gitignore ./src/**/*.{scss,svelte} --quiet"
   },

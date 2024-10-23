@@ -27,13 +27,13 @@
           {
             "case": "pascalCase"
           }
+        ],
+        "import/no-unresolved": [
+          "error",
+          {
+            "ignore": ["^\\$app\\/"]
+          }
         ]
-        //   "import/no-unresolved": [
-        //     "error",
-        //     {
-        //       "ignore": ["$app/**"]
-        //     }
-        //   ]
       }
     },
     {
@@ -144,6 +144,19 @@
     "import/order": [
       "error",
       {
+        "pathGroups": [
+          {
+            "pattern": "$lib",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
+            "pattern": "{$app/**,$lib/**}",
+            "group": "builtin",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin"],
         "alphabetize": {
           "caseInsensitive": true,
           "order": "asc"
