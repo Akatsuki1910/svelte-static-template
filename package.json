@@ -14,7 +14,7 @@
     "lint:stylelint": "stylelint --ignore-path .gitignore ./src/**/*.{scss,svelte} --quiet"
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "^3.0.8",
+    "@sveltejs/adapter-static": "^3.0.9",
     "@sveltejs/kit": "^2.27.3",
     "@sveltejs/vite-plugin-svelte": "^3.1.2",
     "@types/eslint": "8.56.7",
