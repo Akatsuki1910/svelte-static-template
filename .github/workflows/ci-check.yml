@@ -15,17 +15,16 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version-file: '.node-version'
-          cache: 'yarn'
+          node-version-file: ".node-version"
 
       - name: Install packages
-        run: yarn install
+        run: npm install
       - name: Copy package.json
-        run: yarn copy:package.json
+        run: npm run copy:package.json
       - name: Lint Check
-        run: yarn lint
+        run: npm run lint
       - name: Build Check
-        run: yarn build
+        run: npm run build
   deploy:
     if: ${{ github.actor == 'dependabot[bot]' }}
     needs: ci-check
