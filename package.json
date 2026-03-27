@@ -19,7 +19,7 @@
     "@sveltejs/vite-plugin-svelte": "^7.0.0",
     "@types/eslint": "8.56.12",
     "@typescript-eslint/eslint-plugin": "^8.57.2",
-    "@typescript-eslint/parser": "^6.21.0",
+    "@typescript-eslint/parser": "^8.57.2",
     "destyle.css": "^4.0.1",
     "eslint": "^10.1.0",
     "eslint-config-prettier": "^10.1.8",
