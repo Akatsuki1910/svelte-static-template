@@ -31,7 +31,7 @@
     "postcss-html": "^2.0.0",
     "prettier": "^3.9.9",
     "prettier-plugin-svelte": "^4.1.1",
-    "sass": "^1.105.0",
+    "sass": "^1.105.1",
     "stylelint": "^17.16.0",
     "stylelint-config-html": "^2.0.0",
     "stylelint-config-recess-order": "^7.8.0",
